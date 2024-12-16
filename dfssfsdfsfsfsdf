@@ -1,0 +1,107 @@
+[33mcommit 410639956cf0b22ceb173fff46f56db0a33cc242[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Ansh <anshsrivasrava2004@gmail.com>
+Date:   Mon Dec 16 03:14:12 2024 +0530
+
+    Commiting the Landing Page
+
+[33mcommit fc8221858dfd7d203b8f54f2e2b4fb72f34918fa[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:31:14 2024 +0530
+
+    Add SampleComponent and HomePage for AI Image Generation website
+
+[33mcommit e3a654eec270807faa14fb2f6357af475e189170[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:31:08 2024 +0530
+
+    Add App.js as main component to render HomePage
+
+[33mcommit 6d28b82fc617dabb988c8e090d05adad6ddd29e7[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:31:03 2024 +0530
+
+    Add setupTests.js for configuring Jest matchers for DOM assertions
+
+[33mcommit ff8bee48b58ad761582c2968b190849557598248[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:59 2024 +0530
+
+    Add reportWebVitals.js for measuring performance metrics
+
+[33mcommit 5ac6c75f3d30feb6000b73596ded2fae6c5d61ba[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:54 2024 +0530
+
+    Add index.js as entry point for React application
+
+[33mcommit d146581131ad8ee7fcf107df78f4eaab2255c727[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:47 2024 +0530
+
+    Add logo.svg for application branding
+
+[33mcommit 98bb2976c93c16d298d5a46916973909b206d01a[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:43 2024 +0530
+
+    Add index.css for Tailwind CSS styling and global styles
+
+[33mcommit 9af1b4ddbf394f810d19ff85baed40d492814767[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:38 2024 +0530
+
+    Add unit test for App component rendering
+
+[33mcommit 3ed217126ce19a0883989dfddef7dd6281d55af4[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:33 2024 +0530
+
+    Add App.css for styling the React application
+
+[33mcommit b006ccd35944e4985faec4f2dc1bfd347e8f1ab1[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:21 2024 +0530
+
+    Add manifest.json for Progressive Web App support
+
+[33mcommit c2a465fed644a304636d225c11746c8274829a5f[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:30:02 2024 +0530
+
+    Add README.md file with project setup and usage instructions
+
+[33mcommit 84c43ebcd2583c567e4864fca19a7778bc6883ab[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:29:55 2024 +0530
+
+    Add robots.txt file to manage web crawler access
+
+[33mcommit 335b7d95e75b9b52acfa78339788f4052473cdc7[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:29:46 2024 +0530
+
+    Add .gitignore file to exclude unnecessary files and directories
+
+[33mcommit d3342667ba1c88aa70e518d9922f358f2ea3361c[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:29:31 2024 +0530
+
+    Add index.html template for React application
+
+[33mcommit 3c33548a8044355d7a843430a7c7151a3cd7ffd7[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:29:22 2024 +0530
+
+    Add package.json for project setup with dependencies and scripts
+
+[33mcommit 578747f3040c59d09fdf7de5b9e6dfd330294314[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:29:05 2024 +0530
+
+    Add Tailwind CSS configuration file
+
+[33mcommit 3028811348e5c20e82fcb244beceba05cf988ffe[m
+Author: Soumyadip Maity <22053029@kiit.ac.in>
+Date:   Sat Dec 7 18:28:49 2024 +0530
+
+    Add Tailwind CSS configuration file
