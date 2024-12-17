@@ -5,7 +5,7 @@ import Result from './pages/Result';
 import BuyCredit from './pages/BuyCredit';
 import Navbar from './components/Landing/Navbar';
 import { AppContext } from './context/AppContext'; 
-import SignUp from './components/SignUp';
+import Login from './components/Login';
 
 function App() {
   const { showLogin } = useContext(AppContext); 
@@ -19,7 +19,7 @@ function App() {
         <Route path='/BuyCredit' element={<BuyCredit/>}/>
       </Routes>
       
-      {showLogin && <SignUp />}
+      {showLogin && <Login />}
     </div>
   );
 }
