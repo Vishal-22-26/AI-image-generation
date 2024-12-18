@@ -6,7 +6,7 @@ import BuyCredit from "./pages/BuyCredit";
 import Navbar from "./components/Landing/Navbar";
 import { AppContext } from "./context/AppContext";
 import Login from "./components/Authentication/Login";
-
+import ImageGenerationage from "./components/Landing/ImageGenerationage";
 function App() {
   const { showLogin } = useContext(AppContext);
 
