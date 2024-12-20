@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../../assets/assets'
+import ImageGenerationage from './ImageGenerationage'
 
 export default function Description() {
   return (
@@ -28,6 +29,7 @@ export default function Description() {
             </p>
         </div>
     </div>
+    <ImageGenerationage/>
 
     </div>
   )
