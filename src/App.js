@@ -6,6 +6,8 @@ import BuyCredit from "./pages/BuyCredit";
 import Navbar from "./components/Landing/Navbar";
 import { AppContext } from "./context/AppContext";
 import Login from "./components/Authentication/Login";
+import Imagegenerationpage from "./pages/Imagegenerationpage"
+import { DiVim } from "react-icons/di";
 
 function App() {
   const { showLogin } = useContext(AppContext);
