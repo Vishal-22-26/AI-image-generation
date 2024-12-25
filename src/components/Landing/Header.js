@@ -1,6 +1,6 @@
 import React from 'react'
 import { assets } from '../../assets/assets'
-
+import { Link } from 'react-router-dom'
 export default function Header() {
   return (
     <div className='flex flex-col justify-center items-center 
@@ -18,10 +18,10 @@ export default function Header() {
           into visual art in seconds - just type, and watch the magic
           happen.
         </p>
-        <button className='sm:text-lg text-white bg-black wiauto mt-8 px-12
-        py-2.5 flex items-center gap-2 rounded-full'>Generate Images
-        <img className='h-6' src={assets.star_group}/>
-        </button>
+        <Link to="/generation" className='sm:text-lg text-white bg-black wiauto mt-8 px-12
+        py-2.5 flex items-center gap-2 rounded-full no-underline'>Generate Images
+        <img className='h-6' src={assets.star_group} alt="Star group"/>
+        </Link>
         <div className='flex flex-wrap justif-center mt-16 gap-3'>
           {Array(6).fill('').map((item,index)=>(
             <img className='rounded hover:scale-105 transition duration-300
