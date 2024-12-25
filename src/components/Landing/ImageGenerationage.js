@@ -1,5 +1,6 @@
 
-import './ImageGenerationage.css'
+// import './ImageGenerationage.css'
+import { Link } from "react-router-dom";
 const ImageGenerationage=()=>{
     return(
         <div className="imagify-container">
@@ -29,7 +30,9 @@ const ImageGenerationage=()=>{
               className="text-input"
             />
             {/* #5b5b5b */}
-            <button className="generate-button">Generate</button>
+            <button className="generate-button">
+              Generate
+            </button>
           </div>
         </div>
       </div>
