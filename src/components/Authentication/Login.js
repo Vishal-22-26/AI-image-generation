@@ -89,7 +89,8 @@ const Login = () => {
 
         <button
           type="submit"
-          className="bg-blue-600 w-full text-white py-2 rounded-full"
+          style={{ backgroundColor: 'black', color: 'white' }}
+          className="w-full py-2 rounded-full"
         >
           Login
         </button>
