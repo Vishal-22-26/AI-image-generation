@@ -1,5 +1,5 @@
 import React from 'react';
-import ImgComponent from '../components/imgcomponent';
+import ImgComponent from '../components/ImgGenerationComponent/imgcomponent';
 
 
 const Imagegenerationpage = () => {
