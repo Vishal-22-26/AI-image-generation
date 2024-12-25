@@ -6,6 +6,8 @@ import BuyCredit from "./pages/BuyCredit";
 import Navbar from "./components/Landing/Navbar";
 import { AppContext } from "./context/AppContext";
 import Login from "./components/Authentication/Login";
+import GalleryPage from "./pages/GalleryPage";
+import Imagegenerationpage from "./pages/Imagegenerationpage";
 
 function App() {
   const { showLogin } = useContext(AppContext);
@@ -17,6 +19,9 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/result" element={<Result />} />
         <Route path="/BuyCredit" element={<BuyCredit />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/generation" element={<Imagegenerationpage />} />
+
       </Routes>
 
       {showLogin && <Login />}
