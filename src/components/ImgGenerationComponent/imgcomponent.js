@@ -1,60 +1,54 @@
-import React from 'react'
-import { useState } from 'react'
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
-import { AiOutlinePlus, AiOutlineAudio } from "react-icons/ai";
-import {aiphoto} from "./aiphoto.jpg"
+
 export default function ImgComponent() {
-   const [inputText, setInputText]= useState({input:""});
+  const [inputText, setInputText] = useState('');
 
-   function changeHandler(event){
-       event.preventDefault();
-       
-       setInputText(()=>({[event.target.name]:event.target.value}))
-   }
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
+  };
 
-   function submitHandler(event){
-      event.preventDefault()
-      
-      console.log(inputText.input)
-   }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(inputText);
+  };
+
   return (
-    <div className='w-full text-lg py-5 flex justify-center items-center flex-col'>
-      <div className='bg-customBg h-80 w-80 overflow-hidden m-4 shadow-lg shadow-black  rounded-lg'>
-        <img src="aiphoto.jpg"
-          className="h-full w-full object-cover"
-        ></img>
+    <div className="container mx-auto px-4 py-8 max-w-3xl">
+      <div className="bg-gray-100 rounded-2xl shadow-xl overflow-hidden mb-8">
+        <img 
+          src="/aiphoto.jpg" 
+          alt="AI Generated" 
+          className="w-full h-80 object-cover"
+        />
       </div>
 
-      <form className="flex items-center bg-black rounded-full px-4 py-2 shadow-md w-full max-w-[600px] my-4 gap-x-2">
-      
-      <input
-        type="text"
-        name="message"
-        placeholder="Write your text here."
-        className="flex-1 bg-transparent outline-none text-white placeholder-gray-400 mx-3"
-      />
-      <button
-        type="submit"
-        className="text-white text-xl focus:outline-none"
-        aria-label="Send message"
-      >
-        <AiOutlineAudio />
-      </button>
-      <button
-        type="button"
-        className="bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none"
-      >
-        Generate Image
-      </button>
-    </form>
-      <NavLink to="../pages/GalleryPage">
-          <div className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2'>
-            <IoArrowForwardCircleOutline />
-            <button>GO TO MY GALLERY</button>
-          </div>
-        </NavLink>
-    </div>
-  )
-}
+      <form onSubmit={handleSubmit} className="mb-8">
+        <div className="flex items-center bg-white rounded-full shadow-lg overflow-hidden">
+          <input
+            type="text"
+            value={inputText}
+            onChange={handleInputChange}
+            placeholder="Describe your image..."
+            className="flex-grow px-6 py-4 focus:outline-none"
+          />
+          <button
+            type="submit"
+            className="bg-gradient-to-r from-orange-400 to-orange-500 text-white font-semibold px-6 py-4 hover:from-orange-500 hover:to-orange-600 transition-all duration-300"
+          >
+            Generate Image
+          </button>
+        </div>
+      </form>
 
+      <NavLink 
+        to="/gallery" 
+        className="inline-flex items-center justify-center bg-black text-white font-semibold px-6 py-3 rounded-full hover:bg-orange-500 transition-all duration-300"
+      >
+        <IoArrowForwardCircleOutline className="mr-2" />
+        Go to My Gallery
+      </NavLink>
+    </div>
+  );
+}
