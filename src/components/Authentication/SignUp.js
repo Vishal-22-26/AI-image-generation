@@ -83,7 +83,7 @@ const SignUp = ({ onBackToLogin }) => {
           />
         </div>
 
-        <button className="bg-blue-600 w-full text-white py-2 rounded-full mt-4">
+        <button style={{ backgroundColor: 'black', color: 'white' }} className="w-full py-2 rounded-full mt-4">
           Create account
         </button>
 
