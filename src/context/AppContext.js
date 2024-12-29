@@ -15,7 +15,7 @@ const AppContextProvider = (props) => {
   const navigate = useNavigate()
   const loadCreditsData = async () => {
     try {
-      const { data } = await axios.get("http://localhost:4000" + "/api/user/credits", {
+      const { data } = await axios.get(backendUrl + "/api/user/credits", {
         headers: { token },
       });
 
