@@ -5,7 +5,7 @@ import { AppContext } from '../../context/AppContext.js';
 
 export default function Navbar() {
     
-    const {user,setShowLogin} = useContext(AppContext)
+    const {user,setShowLogin, logout, credit} = useContext(AppContext)
     const navigate = useNavigate();
 
     return (
@@ -18,15 +18,15 @@ export default function Navbar() {
                     <div className="flex items-center gap-2 sm:gap-3">
                         <button onClick={() =>navigate('/BuyCredit')} className="flex items-center gap-2 bg-red-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-500">
                             <img className="w-4" src={assets.credit_star} alt="Credits Icon" />
-                            <p className="text-xs sm:text-sm font-medium text-gray-600">Credits left : 50</p>
+                            <p className="text-xs sm:text-sm font-medium text-gray-600">Credits left : {credit}</p>
                         </button>
-                        <p className="text-gray-600 max:sm:hidden pl-4">Hi, User</p>
+                        <p className="text-gray-600 max:sm:hidden pl-4">Hi, {user.name}</p>
                         <div className="relative group">
                             <img src={assets.profile_icon} className="w-10 drop-shadow cursor-pointer" alt="Profile Icon" />
-                            {/* Dropdown Menu */}
+                            
                             <div className="absolute hidden group-hover:block top-full right-0 z-10 text-black bg-white rounded-md border text-sm shadow-lg">
                                 <ul className="list-none m-0 p-2">
-                                    <li
+                                    <li onClick={logout}
                                     className="py-1 px-2 cursor-pointer hover:bg-gray-100 rounded w-20"
                                     >
                                         Log out

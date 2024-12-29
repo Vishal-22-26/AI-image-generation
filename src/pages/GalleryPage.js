@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import GalleryItem from "../components/GalleryComponents/GalleryItem";
 import Loading from "../components/GalleryComponents/Loading"
+
 const GalleryPage = () => {
+  const navigate = useNavigate(); 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const userId = "user123";
 
-  function backHandler() {
-    console.log("piche ja");
-  }
+  const backHandler = () => {
+    navigate('/generate');
+  };
 
   useEffect(() => {
-
     const fetchImages = () => {
       try {
-
         const mockImages = [
           {
             image_url: "images/pexels-helloaesthe-16471876.jpg",
@@ -34,8 +35,6 @@ const GalleryPage = () => {
             image_url: "/images/pexels-serra-nur-cevikdal-2147703100-29743804.jpg",
             creation_date: "2024-12-14T10:00:00",
           },
-
-
         ];
 
         setImages(mockImages);
@@ -50,10 +49,7 @@ const GalleryPage = () => {
   }, [userId]);
 
   if (loading) {
-    return (
-      <div><Loading/></div>
-    );
-
+    return <div><Loading/></div>;
   }
 
   if (error) {
@@ -61,19 +57,24 @@ const GalleryPage = () => {
   }
 
   return (
-    <div className="gallery-container">
-      
-      <div className="flex flex-row  justify-between items-center">
-        <h1>My Gallery</h1>
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
+      <div className="flex flex-row justify-between items-center mb-8">
+        <h1 className="text-2xl font-bold text-gray-800">My Gallery</h1>
 
-        <div className=" flex flex-row border border-black border-solid rounded-xl px-3 py-1 gap-1">
-          <label id="go_back" onClick={backHandler} className=" flex items-center justify-center"><img className="h-5 w-5 " src="images/back-button.png"></img></label>
-          <button id="go_back" onClick={backHandler}>Go Back</button>
-        </div>
-
+        <button 
+          onClick={backHandler}
+          className="flex items-center gap-2 px-4 py-2 border border-black rounded-xl hover:bg-gray-100 transition-colors"
+        >
+          <img 
+            className="h-5 w-5" 
+            src="images/back-button.png" 
+            alt="Back"
+          />
+          <span>Go Back</span>
+        </button>
       </div>
 
-      <div className="gallery">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {images.map((image, index) => (
           <GalleryItem key={index} image={image} />
         ))}

@@ -1,7 +1,19 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../../assets/assets'
+import { useNavigate } from 'react-router-dom'
+import { AppContext } from '../../context/AppContext';
 
 export default function Header() {
+  const navigate = useNavigate();
+  const {token, setShowLogin} = useContext(AppContext)
+
+  const handleGenerateClick = () => {
+    if(!token){
+      setShowLogin(true)
+    } else{
+      navigate('/generate')
+    }
+  }
   return (
     <div className='flex flex-col justify-center items-center 
     text-center my-2'>
@@ -19,7 +31,7 @@ export default function Header() {
           happen.
         </p>
         <button className='sm:text-lg text-white bg-black wiauto mt-8 px-12
-        py-2.5 flex items-center gap-2 rounded-full'>Generate Images
+        py-2.5 flex items-center gap-2 rounded-full' onClick={handleGenerateClick}>Generate Images
         <img className='h-6' src={assets.star_group}/>
         </button>
         <div className='flex flex-wrap justif-center mt-16 gap-3'>
