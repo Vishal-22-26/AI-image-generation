@@ -1,29 +1,42 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; 
 import GalleryItem from "../components/GalleryComponents/GalleryItem";
-import Loading from "../components/GalleryComponents/Loading";
+import Loading from "../components/GalleryComponents/Loading"
 
 const GalleryPage = () => {
+  const navigate = useNavigate(); 
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const userId = "user123";
 
-  const backHandler = useCallback(() => {
-    console.log("Going back");
-    // Implement actual back navigation logic here
-  }, []);
+  const backHandler = () => {
+    navigate('/generate');
+  };
 
   useEffect(() => {
-    const fetchImages = async () => {
+    const fetchImages = () => {
       try {
-        // Simulating API call with mock data
         const mockImages = [
-          { image_url: "images/pexels-helloaesthe-16471876.jpg", creation_date: "2024-12-14T10:00:00" },
-          { image_url: "/images/pexels-kris-shambir-2147748720-29741645.jpg", creation_date: "2024-12-14T10:00:00" },
-          { image_url: "/images/pexels-serra-nur-cevikdal-2147703100-29743804.jpg", creation_date: "2024-12-14T10:00:00" },
-          { image_url: "/images/pexels-serra-nur-cevikdal-2147703100-29743804.jpg", creation_date: "2024-12-14T10:00:00" },
+          {
+            image_url: "images/pexels-helloaesthe-16471876.jpg",
+            creation_date: "2024-12-14T10:00:00",
+          },
+          {
+            image_url: "/images/pexels-kris-shambir-2147748720-29741645.jpg",
+            creation_date: "2024-12-14T10:00:00",
+          },
+          {
+            image_url: "/images/pexels-serra-nur-cevikdal-2147703100-29743804.jpg",
+            creation_date: "2024-12-14T10:00:00",
+          },
+          {
+            image_url: "/images/pexels-serra-nur-cevikdal-2147703100-29743804.jpg",
+            creation_date: "2024-12-14T10:00:00",
+          },
         ];
+
         setImages(mockImages);
       } catch (err) {
         setError(err.message);
@@ -35,21 +48,32 @@ const GalleryPage = () => {
     fetchImages();
   }, [userId]);
 
-  if (loading) return <Loading />;
-  if (error) return <div className="text-red-500">Error: {error}</div>;
+  if (loading) {
+    return <div><Loading/></div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">My Gallery</h1>
-        <button
+    <div className="container mx-auto px-4 py-8 max-w-7xl">
+      <div className="flex flex-row justify-between items-center mb-8">
+        <h1 className="text-2xl font-bold text-gray-800">My Gallery</h1>
+
+        <button 
           onClick={backHandler}
-          className="flex items-center px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"
+          className="flex items-center gap-2 px-4 py-2 border border-black rounded-xl hover:bg-gray-100 transition-colors"
         >
-          <img src="images/back-button.png" alt="Back" className="w-5 h-5 mr-2" />
-          Go Back
+          <img 
+            className="h-5 w-5" 
+            src="images/back-button.png" 
+            alt="Back"
+          />
+          <span>Go Back</span>
         </button>
       </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {images.map((image, index) => (
           <GalleryItem key={index} image={image} />

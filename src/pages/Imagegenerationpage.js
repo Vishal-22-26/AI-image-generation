@@ -2,7 +2,7 @@ import React from 'react';
 import ImgComponent from '../components/ImgGenerationComponent/imgcomponent';
 
 
-const ImageGenerationPage = () => {
+const Imagegenerationpage = () => {
   return (
     
     <div className="w-full h-screen flex justify-center items-center">
@@ -12,4 +12,4 @@ const ImageGenerationPage = () => {
   );
 };
 
-export default ImageGenerationPage;
+export default Imagegenerationpage;

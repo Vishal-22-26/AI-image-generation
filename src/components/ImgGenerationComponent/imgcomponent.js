@@ -1,54 +1,75 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useContext, useState } from 'react'
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import aiphoto from "./aiphoto.jpg"  
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from '../../context/AppContext';
 
 export default function ImgComponent() {
-  const [inputText, setInputText] = useState('');
+   const [inputText, setInputText] = useState({input: ""});
+   const [isImageLoaded, setIsImageLoaded] = useState(false);
+   const [image, setImage] = useState(aiphoto);
+   const [loading, setLoading] = useState(false);
+   const { generateImage } = useContext(AppContext);
+   const navigate = useNavigate();
+  
+   function changeHandler(event) {
+       const { name, value } = event.target;
+       setInputText(prev => ({...prev, [name]: value}));
+   }
+  
+   const submitHandler = async(e) => {
+      e.preventDefault();
+      setLoading(true);
 
-  const handleInputChange = (event) => {
-    setInputText(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(inputText);
-  };
+      try {
+        if(inputText.input.trim()) {
+          const generatedImage = await generateImage(inputText.input);
+          if(generatedImage) {
+            setIsImageLoaded(true);
+            setImage(generatedImage);
+          }
+        }
+      } catch (error) {
+        console.error("Error generating image:", error);
+      } finally {
+        setLoading(false);
+      }
+   }
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-3xl">
-      <div className="bg-gray-100 rounded-2xl shadow-xl overflow-hidden mb-8">
+    <div className='w-full text-lg py-5 flex justify-center items-center flex-col'>
+      <div className='bg-customBg h-80 w-80 overflow-hidden m-4 shadow-lg shadow-black rounded-lg'>
         <img 
-          src="/aiphoto.jpg" 
-          alt="AI Generated" 
-          className="w-full h-80 object-cover"
+          src={isImageLoaded ? image : aiphoto}
+          alt="AI Generated"
+          className="h-full w-full object-cover"
         />
       </div>
 
-      <form onSubmit={handleSubmit} className="mb-8">
-        <div className="flex items-center bg-white rounded-full shadow-lg overflow-hidden">
-          <input
-            type="text"
-            value={inputText}
-            onChange={handleInputChange}
-            placeholder="Describe your image..."
-            className="flex-grow px-6 py-4 focus:outline-none"
-          />
-          <button
-            type="submit"
-            className="bg-gradient-to-r from-orange-400 to-orange-500 text-white font-semibold px-6 py-4 hover:from-orange-500 hover:to-orange-600 transition-all duration-300"
-          >
-            Generate Image
-          </button>
-        </div>
+      <form onSubmit={submitHandler} className="flex items-center bg-black rounded-full px-4 py-2 shadow-md w-full max-w-[600px] my-4 gap-x-2">
+        <input
+          type="text"
+          name="input"
+          value={inputText.input}
+          onChange={changeHandler}
+          placeholder="Write your text here."
+          className="flex-1 bg-transparent outline-none text-white placeholder-gray-400 mx-3"
+          disabled={loading}
+        />
+        
+        <button
+          type="submit"
+          className={`bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+          disabled={loading}
+        >
+          {loading ? 'Generating...' : 'Generate Image'}
+        </button>
       </form>
-
-      <NavLink 
-        to="/gallery" 
-        className="inline-flex items-center justify-center bg-black text-white font-semibold px-6 py-3 rounded-full hover:bg-orange-500 transition-all duration-300"
-      >
-        <IoArrowForwardCircleOutline className="mr-2" />
-        Go to My Gallery
-      </NavLink>
+      
+      <div className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' onClick={() => navigate('/gallery')}>
+        <IoArrowForwardCircleOutline />
+        <span>GO TO MY GALLERY</span>
+      </div>
     </div>
-  );
+  )
 }
