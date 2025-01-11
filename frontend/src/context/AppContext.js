@@ -15,19 +15,19 @@ const AppContextProvider = (props) => {
 
   const loadCreditsData = async () => {
     try {
-      console.log("Loading credits with token:", token); // Add this log
+      console.log("Loading credits with token:", token); 
       
       const { data } = await axios.get(backendUrl + "/api/user/credits", {
         headers: { token },
       });
   
-      console.log("Credits response data:", data); // Add this log
+      console.log("Credits response data:", data); 
   
       if (data.success) {
         setCredit(data.credits);
         setUser(data.user);
         
-        // Only set userId if it exists
+        
         if (data.user && data.user._id) {
           localStorage.setItem('userId', data.user._id);
           console.log("Stored userId:", data.user._id);
@@ -56,7 +56,7 @@ const AppContextProvider = (props) => {
         backendUrl + '/api/image/generate-image', 
         { 
           prompt,
-          userId: localStorage.getItem('userId') // Add userId to request
+          userId: localStorage.getItem('userId')
         }, 
         { headers: { token } }
       );
@@ -79,7 +79,7 @@ const AppContextProvider = (props) => {
 
   const logout = () => {
     localStorage.removeItem("token");
-    localStorage.removeItem("userId"); // Also remove userId on logout
+    localStorage.removeItem("userId");
     setToken("");
     setUser(null);
   };

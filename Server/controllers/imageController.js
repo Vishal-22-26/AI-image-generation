@@ -2,7 +2,7 @@ import userModel from "../models/userModel.js"
 import FormData from 'form-data'
 import axios from "axios"
 
-// In imageController.js
+
 export const generateImage = async(req, res)=> {
   try {
     
@@ -19,7 +19,7 @@ export const generateImage = async(req, res)=> {
     const formData = new FormData()
     formData.append('prompt', prompt)
    
-    // Add error handling and logging for the API call
+    
     try {
       console.log('Attempting Clipdrop API call with key:', process.env.CLIPDROP_API ? 'Key exists' : 'No key found');
     

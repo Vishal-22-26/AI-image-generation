@@ -1,9 +1,8 @@
-// In auth.js
+
 import jwt from 'jsonwebtoken'
 const userAuth = async (req, res, next) => {
   try {
-    // Log the incoming request headers
-    console.log("Auth Headers:", req.headers);
+   
     
     const {token} = req.headers;
     

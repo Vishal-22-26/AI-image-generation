@@ -32,8 +32,7 @@ const registerUser = async (req, res)=> {
   }
 }
 
-// In userController.js
-// In loginUser controller
+
 const loginUser = async (req, res) => {
   try{
     const {email, password} = req.body;
@@ -47,7 +46,7 @@ const loginUser = async (req, res) => {
 
     if(isMatch){
       const token = jwt.sign({id: user._id}, process.env.JWT_SECRET);
-      console.log("Generated token at login:", token); // Add this log
+      console.log("Generated token at login:", token); 
       
       res.json({
         success: true, 
@@ -68,20 +67,20 @@ const loginUser = async (req, res) => {
 const userCredits = async (req, res) => {
   try {
     const {userId} = req.body;
-    console.log("Received userId:", userId); // Add this log
+    console.log("Received userId:", userId); 
     
     const user = await userModel.findById(userId);
     if (!user) {
       return res.json({success: false, message: 'User not found'});
     }
 
-    console.log("Found user:", user); // Add this log
+    console.log("Found user:", user); 
     
     res.json({
       success: true, 
       credits: user.creditBalance, 
       user: {
-        _id: user._id.toString(), // Convert ObjectId to string
+        _id: user._id.toString(), 
         name: user.name
       }
     });

@@ -4,14 +4,12 @@ import { AppContext } from "../context/AppContext";
 import axios from "axios";
 
 
-// Skeleton loading component for gallery items
 const GallerySkeleton = () => (
   <div className="animate-pulse">
     <div className="aspect-square w-full bg-gray-200 rounded-lg"></div>
   </div>
 );
 
-// Gallery item component with hover effects and image loading state
 const GalleryItem = ({ image }) => {
   const [imageLoading, setImageLoading] = useState(true);
   return (
