@@ -3,6 +3,7 @@ import { IoArrowForwardCircleOutline } from "react-icons/io5";
 import aiphoto from "./aiphoto.jpg"  
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
+import { MdOutlineDownloading } from "react-icons/md";
 
 export default function ImgComponent() {
    const [inputText, setInputText] = useState({input: ""});
@@ -12,11 +13,25 @@ export default function ImgComponent() {
    const { generateImage } = useContext(AppContext);
    const navigate = useNavigate();
   
+
    function changeHandler(event) {
        const { name, value } = event.target;
        setInputText(prev => ({...prev, [name]: value}));
    }
-  
+  function downloadHandler(){
+    
+   
+    
+    const link = document.createElement("a");
+    link.href = aiphoto;
+
+
+    link.download = "downloaded-image.jpg";
+
+    link.click();
+
+    link.remove();
+  }
    const submitHandler = async(e) => {
       e.preventDefault();
       setLoading(true);
@@ -65,11 +80,17 @@ export default function ImgComponent() {
           {loading ? 'Generating...' : 'Generate Image'}
         </button>
       </form>
-      
+      <div className='flex flex-row gap-3'>
       <div className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' onClick={() => navigate('/gallery')}>
         <IoArrowForwardCircleOutline />
         <span>GO TO MY GALLERY</span>
       </div>
+      <div className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' onClick={downloadHandler}>
+      <MdOutlineDownloading />
+        <span>Download Image</span>
+      </div>
+      </div>
+      
     </div>
   )
 }
