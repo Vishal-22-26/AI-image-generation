@@ -20,8 +20,8 @@ export default function Description() {
             </p>
             <p className='text-gray-600'>
                 Simply type in a text prompt, and our cutting edge
-                AI will generate high-quality  images in seconds. from
-                Product visuals to character designs and portraits, even
+                AI will generate high-quality  images in seconds. From
+                product visuals to character designs and portraits, even
                 concepts that dont yet exist can be visualized effortlessly.
                 Powered by advanced AI technology, the creative possibilities
                 are limitless!

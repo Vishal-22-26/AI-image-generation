@@ -3,7 +3,7 @@ import React from 'react';
 export default function BuyCredit() {
   return (
     <div className="bg-[#F0FCF9] w-full p-4">
-      {/* Heading */}
+     
       <div className="heading flex justify-center items-center mt-4 mb-11">
         <div 
           className="w-32 md:w-36 h-9 rounded-full text-lg font-serif cursor-pointer flex justify-center items-center bg-black text-white">
@@ -11,9 +11,9 @@ export default function BuyCredit() {
         </div>
       </div>
       
-      {/* Cards */}
+      
       <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 lg:gap-16">
-        {/* Basic Plan */}
+       
         <div className="w-full max-w-xs bg-slate-950 rounded-xl p-4">
           <h3 className="text-center text-white text-xl md:text-2xl mt-1 font-serif">Basic</h3>
           <img 
@@ -35,7 +35,7 @@ export default function BuyCredit() {
           </a>
         </div>
 
-        {/* Professional Plan */}
+       
         <div className="w-full max-w-xs bg-slate-950 rounded-xl p-4">
           <h3 className="text-center text-white text-xl md:text-2xl mt-1 font-serif">Professional</h3>
           <img 
@@ -57,7 +57,7 @@ export default function BuyCredit() {
           </a>
         </div>
 
-        {/* Ultimate Plan */}
+        
         <div className="w-full max-w-xs bg-slate-950 rounded-xl p-4">
           <h3 className="text-center text-white text-xl md:text-2xl mt-1 font-serif">Ultimate</h3>
           <img 
