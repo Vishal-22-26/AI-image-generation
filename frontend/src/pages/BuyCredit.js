@@ -67,9 +67,9 @@ export default function BuyCredit() {
   };
 
   const plans = [
-    { id: 'basic', title: 'Basic', discount: '25%' },
-    { id: 'professional', title: 'Professional', discount: '35%' },
-    { id: 'ultimate', title: 'Ultimate', discount: '45%' }
+    { id: 'basic', title: 'Basic',  price: 'Rs. 10', credits: '5' },
+    { id: 'professional', title: 'Professional',  price: 'Rs. 20', credits: '10' },
+    { id: 'ultimate', title: 'Ultimate',  price: 'Rs. 30', credits: '15' }
   ];
 
   return (
@@ -100,11 +100,15 @@ export default function BuyCredit() {
               src="/images/pricing.jpg"
               className="w-full h-40 object-cover rounded-lg mt-3"
             />
-            <div className="flex justify-center items-center mt-2">
-              <p className="text-white text-center bg-opacity-60 text-xs rounded-full bg-gray-50 px-3 py-1">
-                Save {plan.discount}
-              </p>
-            </div>
+            <div className="flex justify-between items-center mt-2">
+  <p className="text-white text-xs bg-gray-50 bg-opacity-60 rounded-full px-3 py-1">
+    Price: {plan.price}
+  </p>
+  <p className="text-white text-xs bg-gray-50 bg-opacity-60 rounded-full px-3 py-1">
+    Credits: {plan.credits}
+  </p>
+</div>
+
             <button
               onClick={() => paymentRazorpay(plan.id)}
               className="bg-[#EA580C] mt-4 w-full rounded-md font-semibold text-center h-10 text-white"

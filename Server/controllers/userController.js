@@ -114,18 +114,18 @@ try{
     switch(planId.toLowerCase()){
     case 'basic':
         plan='Basic'
-        credits=4
+        credits=5
         amount=10
         break;
         case 'professional':
           plan = 'Professional';
-          credits = 8;
-          amount = 15; 
+          credits = 10;
+          amount = 20; 
           break;
         case 'ultimate':
           plan = 'Ultimate';
-          credits = 12;
-          amount = 20; 
+          credits = 15;
+          amount = 30; 
           break;
     default:
         return res.json({success: false , message:'plan not found'});
