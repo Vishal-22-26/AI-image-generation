@@ -67,56 +67,90 @@ export default function BuyCredit() {
   };
 
   const plans = [
-    { id: 'basic', title: 'Basic',  price: 'Rs. 10', credits: '5' },
-    { id: 'professional', title: 'Professional',  price: 'Rs. 20', credits: '10' },
-    { id: 'ultimate', title: 'Ultimate',  price: 'Rs. 30', credits: '15' }
+    { id: 'basic', title: 'Basic Plan', price: 'Rs. 129', credits: '5', description: 'Perfect for getting started' },
+    { id: 'professional', title: 'Pro Plan', price: 'Rs. 199', credits: '10', description: 'Most popular choice' },
+    { id: 'ultimate', title: 'Ultimate Plan', price: 'Rs. 499', credits: '15', description: 'Best value for power users' }
   ];
 
   return (
-    <div className="bg-[#F0FCF9] w-full p-4">
-      <div className="flex justify-between items-center px-4 mb-6">
+    <div className=" w-full px-4 pb-5">
+      <div className="max-w-5xl mx-auto">
         <button
           onClick={() => navigate('/')}
-          className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors"
+          className="mb-6 mt-2 px-6 py-2.5 bg-black border border-gray-200 text-gray-100 rounded-lg 
+            hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2 shadow-sm"
         >
-          Back to Home
+          <span>←</span> Back
         </button>
-      </div>
 
-      <div className="heading flex justify-center items-center mt-4 mb-11">
-        <div className="w-32 md:w-36 h-9 rounded-full text-lg font-serif cursor-pointer flex justify-center items-center bg-black text-white">
-          Our Plans
+        <div className="text-center mb-14">
+          <h2 className="text-3xl font-bold text-gray-900">
+            Choose Your Credit Package
+          </h2>
+          <p className="mt-3 text-gray-600">
+            Select the plan that best suits your needs
+          </p>
         </div>
-      </div>
 
-      <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-12 lg:gap-16">
-        {plans.map((plan) => (
-          <div key={plan.id} className="w-full max-w-xs bg-slate-950 rounded-xl p-4">
-            <h3 className="text-center text-white text-xl md:text-2xl mt-1 font-serif">
-              {plan.title}
-            </h3>
-            <img
-              alt={`${plan.title} pricing`}
-              src="/images/pricing.jpg"
-              className="w-full h-40 object-cover rounded-lg mt-3"
-            />
-            <div className="flex justify-between items-center mt-2">
-  <p className="text-white text-xs bg-gray-50 bg-opacity-60 rounded-full px-3 py-1">
-    Price: {plan.price}
-  </p>
-  <p className="text-white text-xs bg-gray-50 bg-opacity-60 rounded-full px-3 py-1">
-    Credits: {plan.credits}
-  </p>
-</div>
-
-            <button
-              onClick={() => paymentRazorpay(plan.id)}
-              className="bg-[#EA580C] mt-4 w-full rounded-md font-semibold text-center h-10 text-white"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {plans.map((plan) => (
+            <div
+              key={plan.id}
+              className="relative bg-white rounded-2xl shadow-sm hover:shadow-lg transition-all duration-300
+                border border-gray-100 overflow-hidden"
             >
-              Choose Plan
-            </button>
-          </div>
-        ))}
+              {plan.id === 'professional' && (
+                <div className="absolute top-0 left-0 right-0 bg-[#EA580C] text-white text-xs py-1.5 text-center">
+                  MOST POPULAR
+                </div>
+              )}
+              
+              <div className="p-8 pt-12">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                  {plan.title}
+                </h3>
+                <p className="text-gray-500 text-sm mb-6">
+                  {plan.description}
+                </p>
+
+                <div className="mb-8">
+                  <div className="flex items-baseline">
+                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
+                    <span className="ml-2 text-gray-500">/ one-time</span>
+                  </div>
+                  <p className="mt-2 text-[#EA580C] font-medium">
+                    {plan.credits} Credits
+                  </p>
+                </div>
+
+                <ul className="space-y-4 mb-8">
+                  <li className="flex items-center text-gray-600">
+                    <svg className="w-5 h-5 text-[#EA580C] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    Instant Credit Delivery
+                  </li>
+                  <li className="flex items-center text-gray-600">
+                    <svg className="w-5 h-5 text-[#EA580C] mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    No Expiration Date
+                  </li>
+                </ul>
+
+                <button
+                  onClick={() => paymentRazorpay(plan.id)}
+                  className={`w-full py-3.5 px-6 rounded-lg font-medium transition-all duration-200
+                    ${plan.id === 'professional' 
+                      ? 'bg-[#EA580C] text-white hover:bg-[#D45207]' 
+                      : 'bg-gray-200 text-gray-700 hover:text-gray-100 hover:bg-gray-900'}`}
+                >
+                  Select Package
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
