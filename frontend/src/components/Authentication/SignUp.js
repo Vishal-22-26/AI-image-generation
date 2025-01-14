@@ -92,7 +92,7 @@ const SignUp = ({ onBackToLogin }) => {
           />
         </div>
 
-        <button type='submit' className="bg-blue-600 w-full text-white py-2 rounded-full mt-4">SignUp
+        <button type='submit' className="bg-black w-full text-white py-2 rounded-full mt-4">SignUp
         </button>
 
         <p className="mt-5 text-center">
