@@ -67,11 +67,11 @@ export default function Header() {
           className='h-6'
           src={assets.star_group}
           alt="Star Group"
-          animate={{ rotate: [0, 15, -15, 0] }} // Rotates the star back and forth
+          animate={{ rotate: [0, 15, -15, 0] }} 
           transition={{
-            repeat: Infinity, // Infinite loop
+            repeat: Infinity, 
             repeatType: "loop",
-            duration: 1.5, // Animation duration
+            duration: 1.5, 
           }}
         />
       </motion.button>

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import { IoHomeOutline } from "react-icons/io5";  
 import aiphoto from "./aiphoto.jpg"  
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../../context/AppContext';
@@ -13,25 +14,40 @@ export default function ImgComponent() {
    const { generateImage } = useContext(AppContext);
    const navigate = useNavigate();
   
-
    function changeHandler(event) {
        const { name, value } = event.target;
        setInputText(prev => ({...prev, [name]: value}));
    }
-  function downloadHandler(){
-    
-   
-    
-    const link = document.createElement("a");
-    link.href = aiphoto;
 
+   async function downloadHandler() {
+     try {
+       const currentImage = isImageLoaded ? image : aiphoto;
+       
+  
+       if (currentImage.startsWith('data:image')) {
+         const link = document.createElement("a");
+         link.href = currentImage;
+         link.download = `ai-generated-${Date.now()}.jpg`;
+         link.click();
+         link.remove();
+       } 
 
-    link.download = "downloaded-image.jpg";
+       else {
+         const response = await fetch(currentImage);
+         const blob = await response.blob();
+         const url = window.URL.createObjectURL(blob);
+         const link = document.createElement("a");
+         link.href = url;
+         link.download = `ai-generated-${Date.now()}.jpg`;
+         link.click();
+         window.URL.revokeObjectURL(url);
+         link.remove();
+       }
+     } catch (error) {
+       console.error("Error downloading image:", error);
+     }
+   }
 
-    link.click();
-
-    link.remove();
-  }
    const submitHandler = async(e) => {
       e.preventDefault();
       setLoading(true);
@@ -81,16 +97,28 @@ export default function ImgComponent() {
         </button>
       </form>
       <div className='flex flex-row gap-3'>
-      <div className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' onClick={() => navigate('/gallery')}>
-        <IoArrowForwardCircleOutline />
-        <span>GO TO MY GALLERY</span>
+        <div 
+          className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' 
+          onClick={() => navigate('/')}
+        >
+          <IoHomeOutline />
+          <span>HOME</span>
+        </div>
+        <div 
+          className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' 
+          onClick={() => navigate('/gallery')}
+        >
+          <IoArrowForwardCircleOutline />
+          <span>GO TO MY GALLERY</span>
+        </div>
+        <div 
+          className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' 
+          onClick={downloadHandler}
+        >
+          <MdOutlineDownloading />
+          <span>Download Image</span>
+        </div>
       </div>
-      <div className='bg-orange-400 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-500 focus:outline-none flex flex-row justify-center items-center gap-x-2 cursor-pointer' onClick={downloadHandler}>
-      <MdOutlineDownloading />
-        <span>Download Image</span>
-      </div>
-      </div>
-      
     </div>
   )
 }
