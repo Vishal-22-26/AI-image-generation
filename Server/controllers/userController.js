@@ -115,17 +115,17 @@ try{
     case 'basic':
         plan='Basic'
         credits=5
-        amount=10
+        amount=129
         break;
         case 'professional':
           plan = 'Professional';
           credits = 10;
-          amount = 20; 
+          amount = 149; 
           break;
         case 'ultimate':
           plan = 'Ultimate';
           credits = 15;
-          amount = 30; 
+          amount = 499; 
           break;
     default:
         return res.json({success: false , message:'plan not found'});
