@@ -141,7 +141,7 @@ const TestimonialsSection = () => {
       
       <button 
         onClick={() => setShowForm(!showForm)}
-        className="mb-8 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+        className="mb-8 px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors"
       >
         {showForm ? 'Cancel' : 'Share Your Experience'}
       </button>
@@ -177,7 +177,7 @@ const TestimonialsSection = () => {
                   setSubmitError('');
                 }}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
               />
               <input
                 type="text"
@@ -191,7 +191,7 @@ const TestimonialsSection = () => {
                   setSubmitError('');
                 }}
                 required
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
               />
               <textarea
                 placeholder="Share your experience..."
@@ -205,7 +205,7 @@ const TestimonialsSection = () => {
                 }}
                 required
                 rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black"
               />
               <div className="flex items-center gap-2">
                 <span className="text-sm text-gray-500">Rating:</span>
@@ -230,7 +230,7 @@ const TestimonialsSection = () => {
               </div>
               <button
                 type="submit"
-                className="w-full px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition-colors"
               >
                 Submit Review
               </button>
@@ -283,7 +283,7 @@ const TestimonialsSection = () => {
       {testimonials.length > 3 && (
         <button
           onClick={() => setShowAll(!showAll)}
-          className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className="px-6 py-2 bg-black text-white rounded-lg hover:bg-black transition-colors"
         >
           {showAll ? 'Show Less' : 'Show More'}
         </button>
