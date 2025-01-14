@@ -19,6 +19,7 @@ import star_group from './star_group.png'
 import credit_star from './credit_star.svg'
 import profile_icon from './profile_icon.png'
 import Logo from './Logo.PNG'
+import linkedin from './linkedin.png'
 
 export const assets = {
     logo,
@@ -36,7 +37,8 @@ export const assets = {
     star_group,
     credit_star,
     profile_icon,
-    Logo
+    Logo,
+    linkedin
 
 }
 
