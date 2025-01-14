@@ -3,7 +3,7 @@ import { assets } from '../../assets/assets';
 import { Trash2 } from 'lucide-react';
 
 const TestimonialsSection = () => {
-  const API_BASE_URL = 'http://localhost:4000';
+  const API_BASE_URL = "https://ai-image-generation-backend-qb5v.onrender.com";
   const defaultAvatar = "https://cdn-icons-png.flaticon.com/512/149/149071.png";
   const [testimonials, setTestimonials] = useState([]);
   const [showAll, setShowAll] = useState(false);
@@ -49,19 +49,19 @@ const TestimonialsSection = () => {
         throw new Error('Failed to delete testimonial');
       }
 
-      // Update testimonials list
+     
       setTestimonials(prevTestimonials => 
         prevTestimonials.filter(t => t._id !== testimonialId)
       );
 
-      // Show success message
+      
       setDeleteStatus({
         show: true,
         message: 'Testimonial deleted successfully',
         isError: false
       });
 
-      // Hide success message after 3 seconds
+      
       setTimeout(() => {
         setDeleteStatus({ show: false, message: '', isError: false });
       }, 3000);
@@ -132,7 +132,7 @@ const TestimonialsSection = () => {
       </h1>
       <p className="text-gray-500 mb-12">What Our Users Are Saying</p>
       
-      {/* Status Messages */}
+      
       {deleteStatus.show && (
         <div className={`mb-4 p-3 rounded-lg ${deleteStatus.isError ? 'bg-red-100 text-red-700' : 'bg-green-100 text-green-700'}`}>
           {deleteStatus.message}
@@ -245,7 +245,7 @@ const TestimonialsSection = () => {
             key={testimonial._id || index}
             className="bg-white/20 p-12 rounded-lg shadow-md border w-80 m-auto relative group"
           >
-            {/* Delete Button */}
+           
             <button
               onClick={() => handleDelete(testimonial._id)}
               className="absolute top-4 right-4 p-2 rounded-full bg-red-100 hover:bg-red-200 opacity-0 group-hover:opacity-100 transition-opacity"
